@@ -143,6 +143,7 @@ int main(void)
 	int 	pal_len;
 	int 	fd;
 	int 	i;
+	int 	x;
 	char	letter;
 	char	*result;
 	char	**split_result;
@@ -150,6 +151,7 @@ int main(void)
 	fd = open("arquivo.txt", O_RDONLY);
 	pal_len = 0;
 	i = 0;
+	x = 0;
 	while(read(fd, &letter, 1))
 	{
 		i++;
@@ -160,7 +162,6 @@ int main(void)
 	read(fd, result, i);
 	close(fd);
 	split_result = split(result, '\n');
-	int x = 0;
 	while (split_result[x])
 	{
 		pal_len = find_palidrom(split_result[x]);
