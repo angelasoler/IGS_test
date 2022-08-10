@@ -165,7 +165,7 @@ int main(void)
 	while (split_result[x])
 	{
 		pal_len = find_palidrom(split_result[x]);
-		printf("O maoir palidromo em %s tem %d letras\n", split_result[x], pal_len);
+		printf("O maoir palindromo em %s tem %d letras\n", split_result[x], pal_len);
 		free(split_result[x]);
 		x++;
 	}
