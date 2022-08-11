@@ -1,6 +1,53 @@
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+
+void			put_steps_reverse(unsigned int size, unsigned int init, int steps);
+void			put_steps(unsigned int size, unsigned int init, int steps);
+void			reverse_write_digits(char *s, int count);
+unsigned int	hex_to_int(char *n_hex);
+
+void	calcu_steps(char *init, char *end, int steps)
+{
+	unsigned int	size;
+	unsigned int	n_init;
+	unsigned int	n_end;
+
+	n_init = hex_to_int(init);
+	n_end = hex_to_int(end);
+	if (n_end > n_init)
+	{
+		size = (n_end - n_init) / steps;
+		put_steps(size, n_init, steps);
+	}
+	else if (n_init > n_end)
+	{
+		size = (n_init - n_end) / steps;
+		put_steps_reverse(size, n_init, steps);
+	}
+}
+
+int	main(void)
+{
+	char	r_inicial[20];
+	char	r_final[20];
+	int		steps;
+
+	printf("cor inicial: ");
+	scanf("%s", r_inicial);
+	printf("cor final: ");
+	scanf("%s", r_final);
+	printf("steps: ");
+	scanf("%d", &steps);
+	if (steps < 0)
+	{
+		printf("Invalid input\n");
+		return (0);
+	}
+	calcu_steps(r_inicial, r_final, steps);
+	return(0);
+}
 
 void	reverse_write_digits(char *s, int count)
 {
@@ -70,46 +117,4 @@ void	put_steps_reverse(unsigned int size, unsigned int init, int steps)
 		put_hexa(init);
 		steps--;
 	}
-}
-
-
-void	calcu_steps(char *init, char *end, int steps)
-{
-	unsigned int	size;
-	unsigned int	n_init;
-	unsigned int	n_end;
-
-	n_init = hex_to_int(init);
-	n_end = hex_to_int(end);
-	if (n_end > n_init)
-	{
-		size = (n_end - n_init) / steps;
-		put_steps(size, n_init, steps);
-	}
-	else if (n_init > n_end)
-	{
-		size = (n_init - n_end) / steps;
-		put_steps_reverse(size, n_init, steps);
-	}
-}
-
-int	main(void)
-{
-	char	r_inicial[20];
-	char	r_final[20];
-	int		steps;
-
-	printf("cor inicial: ");
-	scanf("%s", r_inicial);
-	printf("cor final: ");
-	scanf("%s", r_final);
-	printf("steps: ");
-	scanf("%d", &steps);
-	if (steps < 0)
-	{
-		printf("Invalid input\n");
-		return (0);
-	}
-	calcu_steps(r_inicial, r_final, steps);
-	return(0);
 }

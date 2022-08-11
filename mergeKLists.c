@@ -6,7 +6,13 @@ struct ListaNode
 
 struct	ListaNode *mergeKListas(struct  ListNode **listas, int listasSize)
 {
+	struct ListNode **aux;
 
+	aux = listas;
+	while (*aux[i])
+	{
+		aux[i] = listas[i]->next;
+	}
 }
 
 int main(void)
