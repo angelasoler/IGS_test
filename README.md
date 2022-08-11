@@ -2,4 +2,4 @@
 
 Para executar rode:
 
-`gcc <nomedoarquivo> && ./a.out`
+`gcc <nomedoarquivo>.c && ./a.out`
